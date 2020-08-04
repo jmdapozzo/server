@@ -1,24 +1,29 @@
 //Packages
-const express = require("express");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const pkginfo = require("pkginfo")(module, "version", "description");
+const express = require("express");
 
 //Setup the Express app
 const app = express();
-app.use(morgan("short"));
 app.use(express.json());
 app.use(express.static("public"));
 app.use(helmet());
+
+if (app.get("env") === "development"){
+
+    app.use(morgan("tiny"));
+    console.log("Morgan enabled...");
+}
 
 app.get("/", (req, res) => {
     res.send(module.exports);
 });
 
 const fireRisks = [
-    {id : 1, region : "Maniwaki", fireRisk : 3 },
-    {id : 2, region : "Montreal", fireRisk : 1 },
-    {id : 3, region : "Hull", fireRisk : 2 }
+    {id : 1, region : "Maniwaki", risk : 3 },
+    {id : 2, region : "Montreal", risk : 1 },
+    {id : 3, region : "Hull", risk : 2 }
 ]
 
 app.get("/api/sopfeu/fire-risks", (req, res) => {
