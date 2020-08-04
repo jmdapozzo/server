@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "This is a server stub providing a RESTful API to different resources.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmdapozzo/server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmdapozzo/server/issues"
+  },
+  "homepage": "https://github.com/jmdapozzo/server#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^4.0.0",
+    "morgan": "^1.10.0",
+    "pkginfo": "^0.4.1"
+  }
+}
